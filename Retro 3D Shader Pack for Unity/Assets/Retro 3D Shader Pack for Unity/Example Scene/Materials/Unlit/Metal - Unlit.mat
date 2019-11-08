@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Metal - Unlit
   m_Shader: {fileID: 4800000, guid: e70a6b28e5b717f41820512455625611, type: 3}
-  m_ShaderKeywords: USING_SPECULAR_MAP
+  m_ShaderKeywords: ENABLE_AFFINE_TEXTURE_MAPPING USING_SPECULAR_MAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

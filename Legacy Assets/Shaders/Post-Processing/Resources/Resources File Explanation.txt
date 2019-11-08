@@ -1,0 +1,1 @@
+If a post-processing stack shader isn't directly referenced in any scene it won't get built and the effect won't work when running the game outside of the editor. To prevent this, it must be stored in a Resources folder (https://docs.unity3d.com/Manual/LoadingResourcesatRuntime.html) or put in the Always Included Shaders list in Edit -> Project Settings -> Graphics
