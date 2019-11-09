@@ -27,8 +27,6 @@ ScriptsOnlyBuild:
     - TMPro.TMP_SpriteAsset
     - TMPro.TMP_StyleSheet
     - TMPro.TextMeshPro
-    UnityEditor.TestRunner.dll:
-    - UnityEditor.TestTools.TestRunner.TestListCacheData
   sceneClasses:
     Assets/Retro 3D Shader Pack for Unity/Example Scene/Example Scene.unity:
     - Class: 1
@@ -875,4 +873,5 @@ ScriptsOnlyBuild:
   platform: 5
   scenePathNames:
   - Assets/Retro 3D Shader Pack for Unity/Example Scene/Example Scene.unity
-  playerPath: C:/Users/spudm/Documents/GitHub/Retro-3D-Shader-Pack-for-Unity/Builds/Windows/Empty.exe
+  playerPath: C:/Users/spudm/Documents/GitHub/Retro-3D-Shader-Pack-for-Unity/Windows
+    Demo/Retro 3D VFX Pack for Unity - Example Scene.exe

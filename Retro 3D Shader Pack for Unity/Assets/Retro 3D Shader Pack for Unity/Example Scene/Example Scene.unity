@@ -739,7 +739,9 @@ MonoBehaviour:
 
     E - move up
 
-    Left Shift - move faster'
+    Left Shift - move faster
+
+    Esc - exit'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -808,12 +810,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 5.5981035, w: 0}
   m_textInfo:
     textComponent: {fileID: 451318421}
-    characterCount: 123
+    characterCount: 134
     spriteCount: 0
-    spaceCount: 30
-    wordCount: 31
+    spaceCount: 33
+    wordCount: 34
     linkCount: 0
-    lineCount: 8
+    lineCount: 9
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0

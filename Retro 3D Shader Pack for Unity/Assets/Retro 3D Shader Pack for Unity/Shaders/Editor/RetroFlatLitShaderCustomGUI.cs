@@ -1,7 +1,7 @@
 ﻿//////////////////////////////////////////////////
 // Author:				LEAKYFINGERS
 // Date created:		15.10.19
-// Date last edited:	15.10.19
+// Date last edited:	09.11.19
 // References:          https://docs.unity3d.com/Manual/SL-CustomShaderGUI.html
 //                      https://github.com/Unity-Technologies/UnityCsReference/blob/master/Editor/Mono/Inspector/StandardShaderGUI.cs
 //////////////////////////////////////////////////
@@ -27,7 +27,7 @@ public class RetroFlatLitShaderCustomGUI : ShaderGUI
     {
         public static string MapsText = "Maps";
         public static GUIContent AlbedoText = new GUIContent("Albedo", "Albedo (RGB) and Transparency (A)");
-        public static GUIContent SpecularText = new GUIContent("Specular", "Specular (RGB) and Smoothness (A)");
+        public static GUIContent SpecularText = new GUIContent("Specular", "Specular color (RGB)");
         public static GUIContent SmoothnessText = EditorGUIUtility.TrTextContent("Smoothness", "Smoothness value");
         public static GUIContent EmissionText = new GUIContent("Color", "Emission (RGB)");
 
@@ -35,6 +35,7 @@ public class RetroFlatLitShaderCustomGUI : ShaderGUI
         public static string VertexJitterIntensityText = "Vertex Jitter Intensity";
         public static GUIContent AffineMapText = new GUIContent("Affine Texture Mapping", "Disable for default perspective-correct texture mapping");
         public static string DrawDistanceText = "Vertex Draw Distance";
+        public static string DrawDistanceTipText = "(Set to '0' for infinite draw distance)";
     }
 
     private MaterialEditor materialEditor;
@@ -152,6 +153,12 @@ public class RetroFlatLitShaderCustomGUI : ShaderGUI
     private void DoDrawDistanceArea(Material material)
     {
         materialEditor.FloatProperty(drawDistance, Styles.DrawDistanceText);
+
+        using (new GUILayout.HorizontalScope())
+        {
+            GUILayout.Space(30);
+            GUILayout.Label(Styles.DrawDistanceTipText);
+        }
     }
 
     private static void SetMaterialKeywords(Material material)

@@ -1,7 +1,7 @@
 ﻿//////////////////////////////////////////////////
 // Author:              LEAKYFINGERS
 // Date created:        27.10.19
-// Date last edited:    27.10.19
+// Date last edited:    09.11.19
 //////////////////////////////////////////////////
 using System;
 using UnityEngine;
@@ -24,7 +24,7 @@ public sealed class RetroPostProcessEffect : PostProcessEffectSettings
 
     [DisplayName("Dither Pattern"), Tooltip("The pattern used to implement ordered dithering.")]
     public TextureParameter DitherPattern = new TextureParameter { value = null, defaultState = TextureParameterDefault.None };
-    [Tooltip("The scale multiplier for the dither pattern (the dither pattern size is also automatically scaled according to the pixelation effect values).")]
+    [Tooltip("The scale multiplier for the dither pattern (the dither pattern size is also automatically scaled according to the pixelation effect scaling).")]
     public IntParameter DitherPatternScale = new IntParameter { value = 1 };
     [Range(0.0f, 1.0f), Tooltip("The threshold used to control the range of colors that are affected by dithering.")]
     public FloatParameter DitherThreshold = new FloatParameter { value = 0.75f };

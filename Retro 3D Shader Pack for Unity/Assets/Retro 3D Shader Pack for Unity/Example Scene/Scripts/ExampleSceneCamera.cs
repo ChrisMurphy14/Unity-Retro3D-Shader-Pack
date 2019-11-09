@@ -1,7 +1,7 @@
 ﻿//////////////////////////////////////////////////
 // Author:              LEAKYFINGERS
 // Date created:        03.11.19
-// Date last edited:    05.11.19
+// Date last edited:    09.11.19
 //////////////////////////////////////////////////
 using System.Collections;
 using System.Collections.Generic;
@@ -37,9 +37,12 @@ public class ExampleSceneCamera : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Application.Quit();
+
         UpdateMouseLook();
         UpdateMovement();
-        UpdatePostProcessEffects();
+        UpdatePostProcessEffects();        
     }
 
     private void UpdateMouseLook()
