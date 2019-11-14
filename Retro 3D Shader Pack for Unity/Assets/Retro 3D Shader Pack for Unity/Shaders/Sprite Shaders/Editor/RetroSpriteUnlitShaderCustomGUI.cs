@@ -1,7 +1,7 @@
 ﻿//////////////////////////////////////////////////
 // Author:				LEAKYFINGERS
 // Date created:		24.10.19
-// Date last edited:	09.11.19
+// Date last edited:	14.11.19
 // References:          https://docs.unity3d.com/Manual/SL-CustomShaderGUI.html
 //                      https://github.com/Unity-Technologies/UnityCsReference/blob/master/Editor/Mono/Inspector/StandardShaderGUI.cs
 //////////////////////////////////////////////////
@@ -36,7 +36,7 @@ public class RetroSpriteUnlitShaderCustomGUI : ShaderGUI
         public static string RetroText = "Retro Properties";      
         public static string VertexJitterIntensityText = "Vertex Jitter Intensity";
         public static GUIContent VertexJitterSpaceText = new GUIContent("Vertex Jitter Space");
-        public static GUIContent AffineMapText = new GUIContent("Affine Texture Mapping", "Disable for default perspective-correct texture mapping");        
+        public static string AffineMapText = "Affine Texture Mapping Intensity";
         public static string DrawDistanceText = "Vertex Draw Distance";
         public static string DrawDistanceTipText = "(Set to '0' for infinite draw distance)";
     }
@@ -44,13 +44,15 @@ public class RetroSpriteUnlitShaderCustomGUI : ShaderGUI
     private MaterialEditor materialEditor;
     private MaterialProperty colorTint = null;
     private MaterialProperty vertexJitter = null;
+    private MaterialProperty affineMapIntensity = null;
     private MaterialProperty drawDistance = null;
 
     // Gets the properties used by the shader and uses them to update the corresponding member variables.
     private void FindProperties(MaterialProperty[] properties)
     {
-        colorTint = FindProperty("_ColorTint", properties);
+        colorTint = FindProperty("_Color", properties);
         vertexJitter = FindProperty("_VertJitter", properties);
+        affineMapIntensity = FindProperty("_AffineMapIntensity", properties);
         drawDistance = FindProperty("_DrawDist", properties);
     }
 
@@ -93,19 +95,7 @@ public class RetroSpriteUnlitShaderCustomGUI : ShaderGUI
 
     private void DoAffineMappingArea(Material material)
     {
-        bool affineMappingEnabled = Array.IndexOf(material.shaderKeywords, "ENABLE_AFFINE_TEXTURE_MAPPING") != -1;
-
-        EditorGUI.BeginChangeCheck();
-
-        affineMappingEnabled = EditorGUILayout.Toggle(Styles.AffineMapText, affineMappingEnabled);
-
-        if (EditorGUI.EndChangeCheck())
-        {
-            if (affineMappingEnabled)
-                material.EnableKeyword("ENABLE_AFFINE_TEXTURE_MAPPING");
-            else
-                material.DisableKeyword("ENABLE_AFFINE_TEXTURE_MAPPING");
-        }
+        materialEditor.RangeProperty(affineMapIntensity, Styles.AffineMapText);
     }
 
     private void DoDrawDistanceArea(Material material)

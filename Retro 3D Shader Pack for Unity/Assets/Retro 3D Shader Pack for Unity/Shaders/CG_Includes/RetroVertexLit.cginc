@@ -1,21 +1,22 @@
 //////////////////////////////////////////////////
 // Author:				LEAKYFINGERS
 // Date created:		01.09.19
-// Date last edited:	03.11.19
+// Date last edited:	14.11.19
 // References:			http://wiki.unity3d.com/index.php/CGVertexLit
 //////////////////////////////////////////////////
 #ifndef _RETRO_3D_VERTEX_LIT_SHADER_
 #define _RETRO_3D_VERTEX_LIT_SHADER_
 
-sampler2D _AlbedoTex;
-float4 _AlbedoTex_ST; // The four float values used to specify the tiling (x, y) and offset (z, w) values for the textures/maps as set in the Inspector window. 
-float4 _AlbedoColorTint;
-sampler2D _SpecularMap;
-float4 _SpecularColor;
-float _Smoothness;
+sampler2D _MainTex;
+float4 _MainTex_ST; // The four float values used to specify the tiling (x, y) and offset (z, w) values for the textures/maps as set in the Inspector window. 
+float4 _Color;
+sampler2D _SpecGlossMap;
+float4 _SpecColor;
+float _Glossiness;
 float4 _EmissionColor;
 sampler2D _EmissionMap;
 float _VertJitter;
+float _AffineMapIntensity; 
 float _DrawDist;
 
 // A struct containing the fragment data (a collection of values produced by the rasterizer) to be passed into the fragment function.
@@ -57,7 +58,7 @@ v2f vert(appdata_full v)
 		o.vertex = clipPos;
 	#endif	
 		   
-	o.uv = TRANSFORM_TEX(v.texcoord, _AlbedoTex);
+	o.uv = v.texcoord;
 
 	// Affine texture mapping:
 	float wVal = mul(UNITY_MATRIX_P, o.vertex).z;
@@ -88,7 +89,7 @@ v2f vert(appdata_full v)
 
 		fixed3 h = normalize(viewDirObj + lightDirObj);
 		fixed nh = max(0, dot(v.normal, h));
-		fixed specular = pow(nh, _Smoothness * 128.0) * 0.5;
+		fixed specular = pow(nh, _Glossiness * 128.0) * 0.5;
 		o.specular += specular * unity_LightColor[i].rgb * atten;
 	}
 
@@ -99,11 +100,11 @@ v2f vert(appdata_full v)
 			emissionParameter *= tex2Dlod(_EmissionMap, float4(v.texcoord.xy, 0, 0));
 		#endif
 	#endif
-	o.diffuse = (o.diffuse * _AlbedoColorTint + emissionParameter.rgb) * 2;
+	o.diffuse = (o.diffuse * _Color + emissionParameter.rgb) * 2;
 	   
-	float4 specularParameter = _SpecularColor;
+	float4 specularParameter = _SpecColor;
 	#ifdef USING_SPECULAR_MAP
-		specularParameter = tex2Dlod(_SpecularMap, float4(v.texcoord.xy, 0, 0));
+		specularParameter = tex2Dlod(_SpecGlossMap, float4(v.texcoord.xy, 0, 0));
 	#endif
 	o.specular *= specularParameter * 2;	
 
@@ -115,16 +116,14 @@ v2f vert(appdata_full v)
 // The fragment function used to transform fragments into pixels.
 fixed4 frag(v2f i) : COLOR
 {	
-	float2 finalUV = TRANSFORM_TEX(i.uv, _AlbedoTex);
-
 	// Affine texture mapping:
-	#ifdef ENABLE_AFFINE_TEXTURE_MAPPING							
-		finalUV = TRANSFORM_TEX((i.uv_affine / i.uv_affine.z).xy, _AlbedoTex);
-	#endif
+	float2 correctUV = TRANSFORM_TEX(i.uv, _MainTex);
+	float2 affineUV = TRANSFORM_TEX((i.uv_affine / i.uv_affine.z).xy, _MainTex);
+	float2 finalUV = lerp(correctUV, affineUV, _AffineMapIntensity);
 
-	fixed4 col = tex2D(_AlbedoTex, finalUV);
+	fixed4 col = tex2D(_MainTex, finalUV);
 	col.rgb = (col.rgb * i.diffuse + i.specular);
-	col.a = col.a * _AlbedoColorTint.a;
+	col.a = col.a * _Color.a;
 	
 	UNITY_APPLY_FOG(i.fogCoord, col);
 

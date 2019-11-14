@@ -1,7 +1,7 @@
 ﻿//////////////////////////////////////////////////
 // Author:				LEAKYFINGERS
 // Date created:		06.10.19
-// Date last edited:	09.11.19
+// Date last edited:	14.11.19
 // References:          https://docs.unity3d.com/Manual/SL-CustomShaderGUI.html
 //                      https://github.com/Unity-Technologies/UnityCsReference/blob/master/Editor/Mono/Inspector/StandardShaderGUI.cs
 //////////////////////////////////////////////////
@@ -34,7 +34,7 @@ public class RetroUnityLitShaderCustomGUI : ShaderGUI
 
         public static string RetroText = "Retro Properties";
         public static string VertexJitterIntensityText = "Vertex Jitter Intensity";
-        public static GUIContent AffineMapText = new GUIContent("Affine Texture Mapping", "Disable for default perspective-correct texture mapping");
+        public static string AffineMapText = "Affine Texture Mapping Intensity";
         public static string DrawDistanceText = "Vertex Draw Distance";
         public static string DrawDistanceTipText = "(Set to '0' for infinite draw distance)";
     }
@@ -49,20 +49,22 @@ public class RetroUnityLitShaderCustomGUI : ShaderGUI
     private MaterialProperty emissionMap = null;
     private MaterialProperty normalMap = null;
     private MaterialProperty vertexJitter = null;
+    private MaterialProperty affineMapIntensity = null;
     private MaterialProperty drawDistance = null;
 
     // Gets the properties used by the shader and uses them to update the corresponding member variables.
     private void FindProperties(MaterialProperty[] properties)
     {
-        albedoMap = FindProperty("_AlbedoTex", properties);
-        albedoColor = FindProperty("_AlbedoColorTint", properties);
-        specularMap = FindProperty("_SpecularMap", properties);
+        albedoMap = FindProperty("_MainTex", properties);
+        albedoColor = FindProperty("_Color", properties);
+        specularMap = FindProperty("_SpecGlossMap", properties);
         specularColor = FindProperty("_SpecularColor", properties);
-        smoothness = FindProperty("_Smoothness", properties);
-        normalMap = FindProperty("_NormalMap", properties);
+        smoothness = FindProperty("_Glossiness", properties);
+        normalMap = FindProperty("_BumpMap", properties);
         emissionColorForRendering = FindProperty("_EmissionColor", properties);
         emissionMap = FindProperty("_EmissionMap", properties);
         vertexJitter = FindProperty("_VertJitter", properties);
+        affineMapIntensity = FindProperty("_AffineMapIntensity", properties);
         drawDistance = FindProperty("_DrawDist", properties);
     }
 
@@ -144,19 +146,7 @@ public class RetroUnityLitShaderCustomGUI : ShaderGUI
 
     private void DoAffineMappingArea(Material material)
     {
-        bool affineMappingEnabled = Array.IndexOf(material.shaderKeywords, "ENABLE_AFFINE_TEXTURE_MAPPING") != -1;
-
-        EditorGUI.BeginChangeCheck();
-
-        affineMappingEnabled = EditorGUILayout.Toggle(Styles.AffineMapText, affineMappingEnabled);
-
-        if (EditorGUI.EndChangeCheck())
-        {
-            if (affineMappingEnabled)
-                material.EnableKeyword("ENABLE_AFFINE_TEXTURE_MAPPING");
-            else
-                material.DisableKeyword("ENABLE_AFFINE_TEXTURE_MAPPING");
-        }
+        materialEditor.RangeProperty(affineMapIntensity, Styles.AffineMapText);
     }
 
     private void DoDrawDistanceArea(Material material)

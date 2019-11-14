@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////
 // Author:				LEAKYFINGERS
 // Date created:		18.07.19
-// Date last edited:	03.11.19
+// Date last edited:	14.11.19
 //////////////////////////////////////////////////
 #ifndef _RETRO_3D_UNITY_LIGHTING_SHADER_
 #define _RETRO_3D_UNITY_LIGHTING_SHADER_
@@ -14,16 +14,17 @@
 	bool distClip; // Whether a vertex should be clipped according to the draw distance value.
 };
 
-sampler2D _AlbedoTex; 
-float4 _AlbedoTex_ST; // The four float values used to specify the tiling (x, y) and offset (z, w) values for the texture/maps as set in the Inspector window. 
-float4 _AlbedoColorTint;
-sampler2D _SpecularMap;
+sampler2D _MainTex; 
+float4 _MainTex_ST; // The four float values used to specify the tiling (x, y) and offset (z, w) values for the texture/maps as set in the Inspector window. 
+float4 _Color;
+sampler2D _SpecGlossMap;
 float4 _SpecularColor;
-float _Smoothness;
-sampler2D _NormalMap;
+float _Glossiness;
+sampler2D _BumpMap;
 float4 _EmissionColor;
 sampler2D _EmissionMap;
 float _VertJitter;
+float _AffineMapIntensity;
 float _DrawDist;
 
 // A vertex modifier function that alters the incoming vertex data before it reaches the generated vertex function.
@@ -58,23 +59,22 @@ void surf(Input IN, inout SurfaceOutputStandardSpecular o)
 	if (IN.distClip) 
 		clip(-1);
 	
-	float2 finalUV = TRANSFORM_TEX(IN.texCoords, _AlbedoTex);
 	// Affine texture mapping:
-	#ifdef ENABLE_AFFINE_TEXTURE_MAPPING	
-		finalUV = TRANSFORM_TEX((IN.affineTexCoords / IN.affineTexCoords.z).xy, _AlbedoTex);
-	#endif
+	float2 correctUV = TRANSFORM_TEX(IN.texCoords, _MainTex);
+	float2 affineUV = TRANSFORM_TEX((IN.affineTexCoords / IN.affineTexCoords.z).xy, _MainTex);
+	float2 finalUV = lerp(correctUV, affineUV, _AffineMapIntensity);
 
-	fixed4 c = tex2D(_AlbedoTex, finalUV);
-	o.Albedo = c.rgb * _AlbedoColorTint.rgb;	
-	o.Alpha = c.a * _AlbedoColorTint.a;
+	fixed4 c = tex2D(_MainTex, finalUV);
+	o.Albedo = c.rgb * _Color.rgb;	
+	o.Alpha = c.a * _Color.a;
 
 	o.Specular = _SpecularColor;
 	#ifdef USING_SPECULAR_MAP 
-		o.Specular = tex2D(_SpecularMap, finalUV);		
+		o.Specular = tex2D(_SpecGlossMap, finalUV);		
 	#endif
-	o.Smoothness = _Smoothness; 
+	o.Smoothness = _Glossiness; 
 	
-	o.Normal = UnpackNormal(tex2D(_NormalMap, finalUV));
+	o.Normal = UnpackNormal(tex2D(_BumpMap, finalUV));
 
 	#ifdef EMISSION_ENABLED 
 		o.Emission = _EmissionColor; 	

@@ -1,7 +1,7 @@
 //////////////////////////////////////////////////
 // Author:				LEAKYFINGERS
 // Date created:		18.07.19
-// Date last edited:	03.11.19
+// Date last edited:	14.11.19
 //////////////////////////////////////////////////
 #ifndef _RETRO_3D_UNLIT_SHADER_
 #define _RETRO_3D_UNLIT_SHADER_
@@ -23,10 +23,11 @@ struct v2f
 	UNITY_FOG_COORDS(1)
 };
 
-sampler2D _AlbedoTex; // The sampler used to store the albedo texture set in the Inspector window.
-float4 _AlbedoTex_ST; // The four float values used to specify the tiling (x, y) and offset (z, w) values for the albedo texture as set in the Inspector window. 
-float4 _AlbedoColorTint;
+sampler2D _MainTex; // The sampler used to store the albedo texture set in the Inspector window.
+float4 _MainTex_ST; // The four float values used to specify the tiling (x, y) and offset (z, w) values for the albedo texture as set in the Inspector window. 
+float4 _Color;
 float _VertJitter;
+float _AffineMapIntensity;
 float _DrawDist;
 
 // Quantizes the position of the vertex in screen space according to the _VertJitter value and returns it - vertex pos must be in clip space first.
@@ -76,14 +77,12 @@ v2f vert(appdata v)
 // The fragment function used to transform fragments into pixels.
 fixed4 frag(v2f i) : SV_Target
 {
-	float2 finalUV = TRANSFORM_TEX(i.uv, _AlbedoTex);
-
 	// Affine texture mapping:
-	#ifdef ENABLE_AFFINE_TEXTURE_MAPPING							
-		finalUV = TRANSFORM_TEX((i.uv_affine / i.uv_affine.z).xy, _AlbedoTex);
-	#endif
+	float2 correctUV = TRANSFORM_TEX(i.uv, _MainTex);
+	float2 affineUV = TRANSFORM_TEX((i.uv_affine / i.uv_affine.z).xy, _MainTex);
+	float2 finalUV = lerp(correctUV, affineUV, _AffineMapIntensity);
 
-	fixed4 col = tex2D(_AlbedoTex, finalUV) * _AlbedoColorTint;
+	fixed4 col = tex2D(_MainTex, finalUV) * _Color;
 
 	UNITY_APPLY_FOG(i.fogCoord, col);
 

@@ -1,22 +1,23 @@
 ﻿//////////////////////////////////////////////////
 // Author:				LEAKYFINGERS
 // Date created:		24.10.19
-// Date last edited:	03.11.19
+// Date last edited:	14.11.19
 //////////////////////////////////////////////////
 Shader "Retro 3D Shader Pack/Sprite (Lit)" 
 {	
 	Properties       
 	{		           
 		_MainTex("Main Texture", 2D) = "white" {}
-		_ColorTint("Color Tint", Color) = (1, 1, 1, 1)
-		_SpecularMap("Specular Map", 2D) = "white" {} 
+		_Color("Color Tint", Color) = (1, 1, 1, 1)
+		_SpecGlossMap("Specular Map", 2D) = "white" {} 
 		_SpecularColor("Specular Color", Color) = (0, 0, 0, 1)  
-		_Smoothness("Smoothness", Range(0.0, 1.0)) = 0.0  
-		_NormalMap("Normal Map", 2D) = "bump" {}	
+		_Glossiness("Smoothness", Range(0.0, 1.0)) = 0.0  
+		_BumpMap("Normal Map", 2D) = "bump" {}	
 		[HDR] _EmissionColor("Emission Color", Color) = (0, 0, 0, 1)
 		[HDR] _EmissionMap("Emission Map", 2D) = "black" {}
 
 		_VertJitter("Vertex Jitter", Range(0.0, 0.999)) = 0.95 // The range used to set the geometric resolution of each vertex position value in order to create a vertex jittering/snapping effect.		
+		_AffineMapIntensity("Affine Texture Mapping Intensity", Range(0.0, 1.0)) = 1.0 // The intensity of the affine texture mapping effect - set to 0.0 for perspective-correct texture mapping.
 		_DrawDist("Draw Distance", Float) = 0 // The max draw distance from the camera to each vertex, with all vertices outside this range being clipped - set to 0 for infinite range.
 	} 
 			
@@ -29,8 +30,7 @@ Shader "Retro 3D Shader Pack/Sprite (Lit)"
 		CGPROGRAM
 					
 		#pragma surface surf StandardSpecular alpha:fade vertex:vert 
-		#pragma target 3.0		
-		#pragma shader_feature_local ENABLE_AFFINE_TEXTURE_MAPPING  			
+		#pragma target 3.0					
 		#pragma shader_feature_local USING_SPECULAR_MAP // Whether the shader is using the specular map or specular color.
 		#pragma shader_feature_local EMISSION_ENABLED 
 		#pragma shader_feature_local USING_EMISSION_MAP 
@@ -46,14 +46,15 @@ Shader "Retro 3D Shader Pack/Sprite (Lit)"
 
 		sampler2D _MainTex;
 		float4 _MainTex_ST; // The four float values used to specify the tiling (x, y) and offset (z, w) values for the texture/maps as set in the Inspector window. 
-		float4 _ColorTint;
-		sampler2D _SpecularMap;
+		float4 _Color;
+		sampler2D _SpecGlossMap;
 		float4 _SpecularColor;
-		float _Smoothness;
-		sampler2D _NormalMap;
+		float _Glossiness;
+		sampler2D _BumpMap;
 		float4 _EmissionColor;
 		sampler2D _EmissionMap;
 		float _VertJitter;
+		float _AffineMapIntensity;
 		float _DrawDist;
 
 		// A vertex modifier function that alters the incoming vertex data before it reaches the generated vertex function.
@@ -90,23 +91,22 @@ Shader "Retro 3D Shader Pack/Sprite (Lit)"
 			if (IN.distClip)
 				clip(-1);
 
-			float2 finalUV = TRANSFORM_TEX(IN.texCoords, _MainTex);
 			// Affine texture mapping:
-			#ifdef ENABLE_AFFINE_TEXTURE_MAPPING	
-				finalUV = TRANSFORM_TEX((IN.affineTexCoords / IN.affineTexCoords.z).xy, _MainTex);
-			#endif
+			float2 correctUV = TRANSFORM_TEX(IN.texCoords, _MainTex);
+			float2 affineUV = TRANSFORM_TEX((IN.affineTexCoords / IN.affineTexCoords.z).xy, _MainTex);
+			float2 finalUV = lerp(correctUV, affineUV, _AffineMapIntensity);
 
 			fixed4 c = tex2D(_MainTex, finalUV);
-			o.Albedo = c.rgb * IN.color.rgb * _ColorTint.rgb;
-			o.Alpha = c.a  * IN.color.a * _ColorTint.a;
+			o.Albedo = c.rgb * IN.color.rgb * _Color.rgb;
+			o.Alpha = c.a  * IN.color.a * _Color.a;
 
 			o.Specular = _SpecularColor;
 			#ifdef USING_SPECULAR_MAP 
-				o.Specular = tex2D(_SpecularMap, finalUV);
+				o.Specular = tex2D(_SpecGlossMap, finalUV);
 			#endif
-			o.Smoothness = _Smoothness;
+			o.Smoothness = _Glossiness;
 
-			o.Normal = UnpackNormal(tex2D(_NormalMap, finalUV));
+			o.Normal = UnpackNormal(tex2D(_BumpMap, finalUV));
 
 			#ifdef EMISSION_ENABLED 
 				o.Emission = _EmissionColor;

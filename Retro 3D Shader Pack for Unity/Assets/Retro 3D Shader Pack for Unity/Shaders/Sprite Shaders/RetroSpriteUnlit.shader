@@ -1,16 +1,17 @@
 ﻿//////////////////////////////////////////////////
 // Author:				LEAKYFINGERS
 // Date created:		24.10.19
-// Date last edited:	03.11.19
+// Date last edited:	14.11.19
 //////////////////////////////////////////////////
 Shader "Retro 3D Shader Pack/Sprite (Unlit)"
 {
 	Properties
 	{
 		_MainTex("Main Texture", 2D) = "white" {}
-		_ColorTint("Color Tint", Color) = ( 1, 1, 1, 1 )
+		_Color("Color Tint", Color) = ( 1, 1, 1, 1 )
 
 		_VertJitter("Vertex Jitter", Range(0.0, 0.999)) = 0.95 // The range used to set the geometric resolution of each vertex position value in order to create a vertex jittering/snapping effect.		
+		_AffineMapIntensity("Affine Texture Mapping Intensity", Range(0.0, 1.0)) = 1.0 // The intensity of the affine texture mapping effect - set to 0.0 for perspective-correct texture mapping.
 		_DrawDist("Draw Distance", Float) = 0 // The max draw distance from the camera to each vertex, with all vertices outside this range being clipped - set to 0 for infinite range.
 	}
 			
@@ -28,8 +29,7 @@ Shader "Retro 3D Shader Pack/Sprite (Unlit)"
 			#pragma vertex vert 
 			#pragma fragment frag			
 			#pragma multi_compile_fog
-			#pragma shader_feature_local ENABLE_SCREENSPACE_JITTER
-			#pragma shader_feature_local ENABLE_AFFINE_TEXTURE_MAPPING 
+			#pragma shader_feature_local ENABLE_SCREENSPACE_JITTER 
 			#include "UnityCG.cginc"			
 			
 			// A struct containing the vertex data to be passed into the vertex function.
@@ -53,8 +53,9 @@ Shader "Retro 3D Shader Pack/Sprite (Unlit)"
 
 			sampler2D _MainTex; // The sampler used to store the sprite texture set in the Inspector window.
 			float4 _MainTex_ST; // The four float values used to specify the tiling (x, y) and offset (z, w) values for the albedo texture as set in the Inspector window. 		
-			fixed4 _ColorTint;
+			fixed4 _Color;
 			float _VertJitter;
+			float _AffineMapIntensity;
 			float _DrawDist;
 
 			// Quantizes the position of the vertex in screen space according to the _VertJitter value and returns it - vertex pos must be in clip space first.
@@ -106,14 +107,12 @@ Shader "Retro 3D Shader Pack/Sprite (Unlit)"
 			// The fragment function used to transform fragments into pixels.
 			fixed4 frag(v2f i) : SV_Target
 			{
-				float2 finalUV = TRANSFORM_TEX(i.uv, _MainTex);
-
 				// Affine texture mapping:
-				#ifdef ENABLE_AFFINE_TEXTURE_MAPPING							
-					finalUV = TRANSFORM_TEX((i.uv_affine / i.uv_affine.z).xy, _MainTex);
-				#endif
+				float2 correctUV = TRANSFORM_TEX(i.uv, _MainTex);
+				float2 affineUV = TRANSFORM_TEX((i.uv_affine / i.uv_affine.z).xy, _MainTex);
+				float2 finalUV = lerp(correctUV, affineUV, _AffineMapIntensity);
 
-				fixed4 col = tex2D(_MainTex, finalUV) * i.color * _ColorTint;
+				fixed4 col = tex2D(_MainTex, finalUV) * i.color * _Color;
 
 				UNITY_APPLY_FOG(i.fogCoord, col);
 
