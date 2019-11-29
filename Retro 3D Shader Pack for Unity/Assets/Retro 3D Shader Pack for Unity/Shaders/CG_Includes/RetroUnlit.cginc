@@ -43,7 +43,7 @@ float4 ScreenSnap(float4 vertex)
 v2f vert(appdata v)
 {
 	v2f o;
-
+	
 	// Vertex snapping:	
 	#ifdef ENABLE_SCREENSPACE_JITTER
 		o.vertex = UnityObjectToClipPos(v.vertex);

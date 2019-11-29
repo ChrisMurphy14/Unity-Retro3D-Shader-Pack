@@ -1,7 +1,7 @@
 ﻿//////////////////////////////////////////////////
 // Author:              LEAKYFINGERS
 // Date created:        27.10.19
-// Date last edited:    09.11.19
+// Date last edited:    30.11.19
 //////////////////////////////////////////////////
 using System;
 using UnityEngine;
@@ -23,7 +23,7 @@ public sealed class RetroPostProcessEffect : PostProcessEffectSettings
     public FloatParameter ColorDepth = new FloatParameter { value = 0.15f };
 
     [DisplayName("Dither Pattern"), Tooltip("The pattern used to implement ordered dithering.")]
-    public TextureParameter DitherPattern = new TextureParameter { value = null, defaultState = TextureParameterDefault.None };
+    public TextureParameter DitherPattern = new TextureParameter { value = null, defaultState = TextureParameterDefault.Black };
     [Tooltip("The scale multiplier for the dither pattern (the dither pattern size is also automatically scaled according to the pixelation effect scaling).")]
     public IntParameter DitherPatternScale = new IntParameter { value = 1 };
     [Range(0.0f, 1.0f), Tooltip("The threshold used to control the range of colors that are affected by dithering.")]
@@ -56,7 +56,7 @@ public sealed class RetroPostProcessEffectRenderer : PostProcessEffectRenderer<R
         sheet.properties.SetFloat("_SourceRenderHeight", context.height);
 
         sheet.properties.SetFloat("_ColorDepth", settings.ColorDepth);
-
+        
         if (settings.DitherPattern.value)
         {
             sheet.properties.SetTexture("_DitherPattern", settings.DitherPattern);
@@ -64,7 +64,9 @@ public sealed class RetroPostProcessEffectRenderer : PostProcessEffectRenderer<R
             sheet.properties.SetFloat("_DitherThreshold", settings.DitherThreshold);
             sheet.properties.SetFloat("_DitherIntensity", settings.DitherIntensity);            
         }          
-        
+        else
+            sheet.properties.SetFloat("_DitherIntensity", 0.0f);
+
         context.command.BlitFullscreenTriangle(context.source, context.destination, sheet, 0); // Applies the shader to the source image and outputs the result to the appropriate destination.
     }
 }

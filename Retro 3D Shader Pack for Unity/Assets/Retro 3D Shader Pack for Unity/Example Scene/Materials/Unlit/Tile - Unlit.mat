@@ -90,7 +90,7 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _VertJitter: 0.95
+    - _VertJitter: 0.96
     - _ZWrite: 1
     m_Colors:
     - _AlbedoColorTint: {r: 1, g: 1, b: 1, a: 1}

@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Metal - Unity Lit
   m_Shader: {fileID: 4800000, guid: 5b6653a24895b9a4881107e190d9a99c, type: 3}
-  m_ShaderKeywords: USING_SPECULAR_MAP
+  m_ShaderKeywords: USING_SPECULAR_MAP _NORMALMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0

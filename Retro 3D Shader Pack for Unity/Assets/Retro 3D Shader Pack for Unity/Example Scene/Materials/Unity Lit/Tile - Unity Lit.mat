@@ -90,11 +90,11 @@ Material:
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0
-    - _VertJitter: 0.95
+    - _VertJitter: 0.96
     - _ZWrite: 1
     m_Colors:
     - _AlbedoColorTint: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0.5394797, g: 0.5394797, b: 0.5394797, a: 1}
+    - _EmissionColor: {r: 0, g: 0.5, b: 0.052941177, a: 1}
     - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 0.4245283, g: 0.4245283, b: 0.4245283, a: 1}
