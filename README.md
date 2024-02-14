@@ -1,6 +1,6 @@
 # Retro-3D-Shader-Pack-for-Unity
 
-The Retro 3D Shader Pack for Unity is a collection of shaders that can be used to replicate the distinct visual style of early 3D games within the modern Unity engine. Features include:
+The Retro 3D Shader Pack for Unity is a collection of shaders that can be used to replicate the distinct visual style of early 3D games within the modern Unity engine. Features include: 
 
 - Four distinct lighting types; unlit, vertex lit, flat lit, and standard Unity lighting
 - Support for common material features such as transparency, tiling & offset, color tint, specularity, normal mapping, emission, and more
