@@ -12,4 +12,4 @@ The Retro 3D Shader Pack for Unity is a collection of shaders that can be used t
 	- Color depth/posterization
 	- Scalable dithering which comes with a set of supplied dither patterns as well as the option to use your own
 - Demonstration scene showcasing the practical use of each shader with example materials and post-processing profile
-- Licensed under the Creative Commons - Attribution Share-Alike license, which means that the pack itself can be freely shared and adapted as long as proper attribution is given and it remains under the same licensing terms
+- Licensed under the Creative Commons - Attribution Share-Alike license, which means that the pack itself can be freely shared and adapted as long as proper attribution is given and it also remains under the same licensing terms
