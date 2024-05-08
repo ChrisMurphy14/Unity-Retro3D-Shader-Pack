@@ -1,11 +1,9 @@
-RETRO 3D VFX PACK FOR UNITY v1.0
+RETRO 3D VFX PACK FOR UNITY v1.3
 
-Created by LEAKYFINGERS 
-(leakyfingers.itch.io)
-(twitter.com/leakyfingers)
-(weepingdigits@gmail.com)
+Created by Chris Murphy 
+(chrismurphy141414@gmail.com)
 
-Last updated 08.11.19
+Last updated 08.05.2024
 
 
 

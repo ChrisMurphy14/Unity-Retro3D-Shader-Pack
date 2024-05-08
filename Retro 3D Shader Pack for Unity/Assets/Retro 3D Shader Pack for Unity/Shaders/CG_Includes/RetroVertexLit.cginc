@@ -1,5 +1,5 @@
 //////////////////////////////////////////////////
-// Author:				LEAKYFINGERS
+// Author:				Chris Murphy
 // Date created:		01.09.19
 // Date last edited:	14.11.19
 // References:			http://wiki.unity3d.com/index.php/CGVertexLit

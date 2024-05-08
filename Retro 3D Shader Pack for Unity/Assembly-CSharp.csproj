@@ -60,10 +60,10 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.26f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Retro 3D Shader Pack for Unity\Example Scene\Scripts\RotateConstantly.cs" />
     <Compile Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Post-Processing\RetroPostProcessEffect.cs" />
-    <Compile Include="Assets\Retro 3D Shader Pack for Unity\Example Scene\Scripts\Rotate.cs" />
+    <Compile Include="Assets\Retro 3D Shader Pack for Unity\Example Scene\Scripts\EmissiveSphereMovement.cs" />
     <Compile Include="Assets\Retro 3D Shader Pack for Unity\Example Scene\Scripts\ExampleSceneCamera.cs" />
-    <Compile Include="Assets\Retro 3D Shader Pack for Unity\Example Scene\Scripts\EmissiveSphere.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\CG_Includes\RetroFlatLit.cginc" />

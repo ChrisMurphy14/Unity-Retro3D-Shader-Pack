@@ -1,38 +1,37 @@
 ﻿//////////////////////////////////////////////////
-// Author:              LEAKYFINGERS
+// Author:              Chris Murphy
 // Date created:        03.11.19
-// Date last edited:    09.11.19
+// Date last edited:    08.05.24
 //////////////////////////////////////////////////
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering.PostProcessing;
 
-
 [RequireComponent(typeof(Camera))]
+// Allows the main camera to be rotated and 'flown' through space using the mouse and the WASDQE keys, as well as enabling and disabling the retro post-processing effects with the 'P' key.
 public class ExampleSceneCamera : MonoBehaviour
-{
+{   
     public PostProcessVolume RetroPostProcessVolume;
-    public float MouseSensitivity = 100.0f;
+    public float MouseSensitivity = 1000.0f;
     public float VerticalClampAngle = 80.0f;
-    public float MoveSpeed = 5;
+    public float MoveSpeed = 5.0f;
 
-
-    private RetroPostProcessEffect postProcessEffect = null;
-    private Vector2 MouseLookRotation; // The rotation of the camera around the X and Y axis according to the mouse position.
+    private RetroPostProcessEffect _postProcessEffect = null;
+    private Vector2 _mouseLookRotation; // Used to store the mouse look values of the previous frame for comparison.
 
     private void Awake()
     {
         Vector3 rotation = transform.localRotation.eulerAngles;
-        MouseLookRotation.x = rotation.x;
-        MouseLookRotation.y = rotation.y;
+        _mouseLookRotation.x = rotation.x;
+        _mouseLookRotation.y = rotation.y;
 
         Cursor.lockState = CursorLockMode.Locked;
     }
 
     private void Start()
     {
-        RetroPostProcessVolume.profile.TryGetSettings(out postProcessEffect);
+        RetroPostProcessVolume.profile.TryGetSettings(out _postProcessEffect);
     }
 
     private void Update()
@@ -51,10 +50,10 @@ public class ExampleSceneCamera : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
 
         Vector2 mousePos = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
-        MouseLookRotation.x += mousePos.y * MouseSensitivity * Time.deltaTime;
-        MouseLookRotation.y += mousePos.x * MouseSensitivity * Time.deltaTime;
-        MouseLookRotation.x = Mathf.Clamp(MouseLookRotation.x, -VerticalClampAngle, VerticalClampAngle);
-        Quaternion localRotation = Quaternion.Euler(MouseLookRotation.x, MouseLookRotation.y, 0.0f);
+        _mouseLookRotation.x += mousePos.y * MouseSensitivity * Time.deltaTime;
+        _mouseLookRotation.y += mousePos.x * MouseSensitivity * Time.deltaTime;
+        _mouseLookRotation.x = Mathf.Clamp(_mouseLookRotation.x, -VerticalClampAngle, VerticalClampAngle);
+        Quaternion localRotation = Quaternion.Euler(_mouseLookRotation.x, _mouseLookRotation.y, 0.0f);
         transform.rotation = localRotation;
     }
 
@@ -85,6 +84,6 @@ public class ExampleSceneCamera : MonoBehaviour
     private void UpdatePostProcessEffects()
     {
         if (Input.GetKeyDown(KeyCode.P))
-            postProcessEffect.enabled.value = !postProcessEffect.enabled.value;
+            _postProcessEffect.enabled.value = !_postProcessEffect.enabled.value;
     }
 }

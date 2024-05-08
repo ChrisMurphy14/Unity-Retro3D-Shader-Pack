@@ -1,5 +1,5 @@
 ﻿//////////////////////////////////////////////////
-// Author:				LEAKYFINGERS
+// Author:				Chris Murphy
 // Date created:		16.10.19
 // Date last edited:	14.11.19
 // References:          https://docs.unity3d.com/Manual/SL-CustomShaderGUI.html
