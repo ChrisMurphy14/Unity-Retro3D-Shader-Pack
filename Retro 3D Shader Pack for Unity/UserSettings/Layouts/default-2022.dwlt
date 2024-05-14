@@ -178,7 +178,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 90
+  controlID: 106
 --- !u!114 &8
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -417,7 +417,7 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/Retro 3D Shader Pack for Unity/Shaders
+    - Assets/Retro 3D Shader Pack for Unity/Example Scene
     m_Globs: []
     m_OriginalText: 
     m_ImportLogFlags: 0
@@ -425,7 +425,7 @@ MonoBehaviour:
   m_ViewMode: 1
   m_StartGridSize: 96
   m_LastFolders:
-  - Assets/Retro 3D Shader Pack for Unity/Shaders
+  - Assets/Retro 3D Shader Pack for Unity/Example Scene
   m_LastFoldersGridSize: 96
   m_LastProjectPath: C:\Users\Chris\Documents\Unity-Retro3D-Shader-Pack\Retro 3D
     Shader Pack for Unity
@@ -433,9 +433,9 @@ MonoBehaviour:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 9c590000
-    m_LastClickedID: 22940
-    m_ExpandedIDs: 000000009a5900009c5900009e590000d6590000
+    m_SelectedIDs: d0590000
+    m_LastClickedID: 22992
+    m_ExpandedIDs: 000000009a5900009c5900009e590000a0590000d0590000e4590000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -988,9 +988,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 18.4556, y: -2.700417, z: 9.586556}
+    m_Target: {x: 40.36237, y: 0.40020788, z: 8.948888}
     speed: 2
-    m_Value: {x: 18.4556, y: -2.700417, z: 9.586556}
+    m_Value: {x: 40.36237, y: 0.40020788, z: 8.948888}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -1001,9 +1001,9 @@ MonoBehaviour:
   m_SceneViewState:
     m_AlwaysRefresh: 0
     showFog: 1
-    showSkybox: 0
+    showSkybox: 1
     showFlares: 1
-    showImageEffects: 0
+    showImageEffects: 1
     showParticleSystems: 1
     showVisualEffectGraphs: 1
     m_FxEnabled: 1
@@ -1036,9 +1036,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.18038301, y: 0.18756883, z: -0.035064824, w: 0.96491003}
+    m_Target: {x: 0.13484772, y: -0.3165257, z: 0.045517907, w: 0.9378311}
     speed: 2
-    m_Value: {x: 0.18038292, y: 0.18756874, z: -0.03506481, w: 0.96490955}
+    m_Value: {x: 0.13344271, y: -0.31659812, z: 0.045043733, w: 0.9380457}
   m_Size:
     m_Target: 10
     speed: 2

@@ -1,7 +1,7 @@
 ﻿//////////////////////////////////////////////////
 // Author:				Chris Murphy
 // Date created:		24.10.19
-// Date last edited:	14.11.19
+// Date last edited:	14.05.24
 //////////////////////////////////////////////////
 Shader "Retro 3D Shader Pack/Sprite (Lit)" 
 {	

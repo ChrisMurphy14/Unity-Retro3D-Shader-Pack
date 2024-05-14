@@ -1,7 +1,8 @@
 ﻿//////////////////////////////////////////////////
 // Author:				Chris Murphy
 // Date created:		15.10.19
-// Date last edited:	14.11.19
+// Date last edited:	14.05.24
+// Notes:               Any file containing a class derived from 'ShaderGUI' must be placed in a folder named 'Editor' to function correctly.
 // References:          https://docs.unity3d.com/Manual/SL-CustomShaderGUI.html
 //                      https://github.com/Unity-Technologies/UnityCsReference/blob/master/Editor/Mono/Inspector/StandardShaderGUI.cs
 //////////////////////////////////////////////////
@@ -9,18 +10,17 @@ using System;
 using UnityEngine;
 using UnityEditor;
 
-// The class which defines a custom GUI for materials using the Retro 3D flat lighting shader.
+// Defines a custom GUI for materials using the Retro 3D flat lighting shaders (opaque and transparent).
 public class RetroFlatLitShaderCustomGUI : ShaderGUI
 {
     public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] properties)
     {
         FindProperties(properties);
-        this.materialEditor = materialEditor;
+        this._materialEditor = materialEditor;
         Material material = materialEditor.target as Material;
 
         ShaderPropertiesGUI(material);
     }
-
 
     // The static class containing the strings used for the GUI labels and tooltips.
     private static class Styles
@@ -38,31 +38,31 @@ public class RetroFlatLitShaderCustomGUI : ShaderGUI
         public static string DrawDistanceTipText = "(Set to '0' for infinite draw distance)";
     }
 
-    private MaterialEditor materialEditor;
-    private MaterialProperty albedoMap = null;
-    private MaterialProperty albedoColor = null;
-    private MaterialProperty specularMap = null;
-    private MaterialProperty specularColor = null;
-    private MaterialProperty smoothness = null;
-    private MaterialProperty emissionColorForRendering = null;
-    private MaterialProperty emissionMap = null;
-    private MaterialProperty vertexJitter = null;
-    private MaterialProperty affineMapIntensity = null;
-    private MaterialProperty drawDistance = null;
+    private MaterialEditor _materialEditor;
+    private MaterialProperty _albedoMap = null;
+    private MaterialProperty _albedoColor = null;
+    private MaterialProperty _specularMap = null;
+    private MaterialProperty _specularColor = null;
+    private MaterialProperty _smoothness = null;
+    private MaterialProperty _emissionColorForRendering = null;
+    private MaterialProperty _emissionMap = null;
+    private MaterialProperty _vertexJitter = null;
+    private MaterialProperty _affineMapIntensity = null;
+    private MaterialProperty _drawDistance = null;
 
     // Gets the properties used by the shader and uses them to update the corresponding member variables.
     private void FindProperties(MaterialProperty[] properties)
     {
-        albedoMap = FindProperty("_MainTex", properties);
-        albedoColor = FindProperty("_Color", properties);
-        specularMap = FindProperty("_SpecGlossMap", properties);
-        specularColor = FindProperty("_SpecularColor", properties);
-        smoothness = FindProperty("_Glossiness", properties);
-        emissionColorForRendering = FindProperty("_EmissionColor", properties);
-        emissionMap = FindProperty("_EmissionMap", properties);
-        vertexJitter = FindProperty("_VertJitter", properties);
-        affineMapIntensity = FindProperty("_AffineMapIntensity", properties);
-        drawDistance = FindProperty("_DrawDist", properties);
+        _albedoMap = FindProperty("_MainTex", properties);
+        _albedoColor = FindProperty("_Color", properties);
+        _specularMap = FindProperty("_SpecGlossMap", properties);
+        _specularColor = FindProperty("_SpecularColor", properties);
+        _smoothness = FindProperty("_Glossiness", properties);
+        _emissionColorForRendering = FindProperty("_EmissionColor", properties);
+        _emissionMap = FindProperty("_EmissionMap", properties);
+        _vertexJitter = FindProperty("_VertJitter", properties);
+        _affineMapIntensity = FindProperty("_AffineMapIntensity", properties);
+        _drawDistance = FindProperty("_DrawDist", properties);
     }
 
     // Displays the shader properties on the material GUI.
@@ -77,7 +77,7 @@ public class RetroFlatLitShaderCustomGUI : ShaderGUI
             DoAlbedoArea(material);
             DoSpecularArea(material);
             DoEmissionArea(material);
-            materialEditor.TextureScaleOffsetProperty(albedoMap); // Displays the offset and tiling values to be used for all the maps.
+            _materialEditor.TextureScaleOffsetProperty(_albedoMap); // Displays the offset and tiling values to be used for all the maps.
 
             EditorGUILayout.Space();
 
@@ -93,56 +93,56 @@ public class RetroFlatLitShaderCustomGUI : ShaderGUI
 
     private void DoAlbedoArea(Material material)
     {
-        materialEditor.TexturePropertySingleLine(Styles.AlbedoText, albedoMap, albedoColor);
+        _materialEditor.TexturePropertySingleLine(Styles.AlbedoText, _albedoMap, _albedoColor);
     }
 
     private void DoSpecularArea(Material material)
     {
-        bool hasSpecularMap = specularMap.textureValue != null;
-        materialEditor.TexturePropertySingleLine(Styles.SpecularText, specularMap, hasSpecularMap ? null : specularColor); // Displays the specular color picker if the specular map value is 'none', else just displays the specular map.
+        bool hasSpecularMap = _specularMap.textureValue != null;
+        _materialEditor.TexturePropertySingleLine(Styles.SpecularText, _specularMap, hasSpecularMap ? null : _specularColor); // Displays the specular color picker if the specular map value is 'none', else just displays the specular map.
         if (hasSpecularMap)
             material.EnableKeyword("USING_SPECULAR_MAP");
         else
             material.DisableKeyword("USING_SPECULAR_MAP");
 
         int indentation = 2;
-        materialEditor.ShaderProperty(smoothness, Styles.SmoothnessText, indentation);
+        _materialEditor.ShaderProperty(_smoothness, Styles.SmoothnessText, indentation);
     }
 
     private void DoEmissionArea(Material material)
     {
-        if (materialEditor.EmissionEnabledProperty())
+        if (_materialEditor.EmissionEnabledProperty())
         {
-            bool hasEmissionTexture = emissionMap.textureValue != null;
+            bool hasEmissionTexture = _emissionMap.textureValue != null;
 
-            materialEditor.TexturePropertyWithHDRColor(Styles.EmissionText, emissionMap, emissionColorForRendering, false);
+            _materialEditor.TexturePropertyWithHDRColor(Styles.EmissionText, _emissionMap, _emissionColorForRendering, false);
 
-            float brightness = emissionColorForRendering.colorValue.maxColorComponent;
-            if (emissionMap.textureValue != null && !hasEmissionTexture && brightness <= 0.0f)
-                emissionColorForRendering.colorValue = Color.white;
+            float brightness = _emissionColorForRendering.colorValue.maxColorComponent;
+            if (_emissionMap.textureValue != null && !hasEmissionTexture && brightness <= 0.0f)
+                _emissionColorForRendering.colorValue = Color.white;
 
             if (hasEmissionTexture)
                 material.EnableKeyword("USING_EMISSION_MAP");
             else
                 material.DisableKeyword("USING_EMISSION_MAP");
 
-            materialEditor.LightmapEmissionFlagsProperty(MaterialEditor.kMiniTextureFieldLabelIndentLevel, true);
+            _materialEditor.LightmapEmissionFlagsProperty(MaterialEditor.kMiniTextureFieldLabelIndentLevel, true);
         }
     }
 
     private void DoVertexJitterArea(Material material)
     {
-        materialEditor.RangeProperty(vertexJitter, Styles.VertexJitterIntensityText);
+        _materialEditor.RangeProperty(_vertexJitter, Styles.VertexJitterIntensityText);
     }
 
     private void DoAffineMappingArea(Material material)
     {
-        materialEditor.RangeProperty(affineMapIntensity, Styles.AffineMapText);
+        _materialEditor.RangeProperty(_affineMapIntensity, Styles.AffineMapText);
     }
 
     private void DoDrawDistanceArea(Material material)
     {
-        materialEditor.FloatProperty(drawDistance, Styles.DrawDistanceText);
+        _materialEditor.FloatProperty(_drawDistance, Styles.DrawDistanceText);
 
         using (new GUILayout.HorizontalScope())
         {

@@ -1,7 +1,8 @@
 ﻿//////////////////////////////////////////////////
 // Author:				Chris Murphy
 // Date created:		02.10.19
-// Date last edited:	14.11.19
+// Date last edited:	14.05.24
+// Notes:               Any file containing a class derived from 'ShaderGUI' must be placed in a folder named 'Editor' to function correctly.
 // References:          https://docs.unity3d.com/Manual/SL-CustomShaderGUI.html
 //                      https://github.com/Unity-Technologies/UnityCsReference/blob/master/Editor/Mono/Inspector/StandardShaderGUI.cs
 //////////////////////////////////////////////////
@@ -9,7 +10,7 @@ using System;
 using UnityEngine;
 using UnityEditor;
 
-// The class which defines a custom GUI for materials using the Retro 3D Unlit shaders.
+// Defines a custom GUI for materials using the Retro 3D Unlit shaders (opaque and transparent).
 public class RetroUnlitShaderCustomGUI : ShaderGUI
 {
     public enum VertexJitterSpace
@@ -21,12 +22,11 @@ public class RetroUnlitShaderCustomGUI : ShaderGUI
     public override void OnGUI(MaterialEditor materialEditor, MaterialProperty[] properties)
     {
         FindProperties(properties);
-        this.materialEditor = materialEditor;
+        this._materialEditor = materialEditor;
         Material material = materialEditor.target as Material;
 
         ShaderPropertiesGUI(material);
     }
-
 
     // The static class containing the strings used for the GUI labels and tooltips.
     private static class Styles
@@ -42,21 +42,21 @@ public class RetroUnlitShaderCustomGUI : ShaderGUI
         public static string DrawDistanceTipText = "(Set to '0' for infinite draw distance)";
     }
 
-    private MaterialEditor materialEditor;
-    private MaterialProperty albedoMap = null;
-    private MaterialProperty albedoColor = null;
-    private MaterialProperty vertexJitter = null;
-    private MaterialProperty affineMapIntensity = null;
-    private MaterialProperty drawDistance = null;
+    private MaterialEditor _materialEditor;
+    private MaterialProperty _albedoMap = null;
+    private MaterialProperty _albedoColor = null;
+    private MaterialProperty _vertexJitter = null;
+    private MaterialProperty _affineMapIntensity = null;
+    private MaterialProperty _drawDistance = null;
 
     // Gets the properties used by the shader and uses them to update the corresponding member variables.
     private void FindProperties(MaterialProperty[] properties)
     {
-        albedoMap = FindProperty("_MainTex", properties);
-        albedoColor = FindProperty("_Color", properties);
-        vertexJitter = FindProperty("_VertJitter", properties);
-        affineMapIntensity = FindProperty("_AffineMapIntensity", properties);
-        drawDistance = FindProperty("_DrawDist", properties);
+        _albedoMap = FindProperty("_MainTex", properties);
+        _albedoColor = FindProperty("_Color", properties);
+        _vertexJitter = FindProperty("_VertJitter", properties);
+        _affineMapIntensity = FindProperty("_AffineMapIntensity", properties);
+        _drawDistance = FindProperty("_DrawDist", properties);
     }
 
     // Displays the shader properties on the material GUI.
@@ -67,7 +67,7 @@ public class RetroUnlitShaderCustomGUI : ShaderGUI
         // The 'Maps' section:
         GUILayout.Label(Styles.MapsText, EditorStyles.boldLabel);
         DoAlbedoArea(material);
-        materialEditor.TextureScaleOffsetProperty(albedoMap); // Displays the offset and tiling values to be used for all the maps.
+        _materialEditor.TextureScaleOffsetProperty(_albedoMap); // Displays the offset and tiling values to be used for all the maps.
 
         EditorGUILayout.Space();
 
@@ -80,12 +80,12 @@ public class RetroUnlitShaderCustomGUI : ShaderGUI
 
     private void DoAlbedoArea(Material material)
     {
-        materialEditor.TexturePropertySingleLine(Styles.AlbedoText, albedoMap, albedoColor);
+        _materialEditor.TexturePropertySingleLine(Styles.AlbedoText, _albedoMap, _albedoColor);
     }
 
     private void DoVertexJitterArea(Material material)
     {
-        materialEditor.RangeProperty(vertexJitter, Styles.VertexJitterIntensityText);
+        _materialEditor.RangeProperty(_vertexJitter, Styles.VertexJitterIntensityText);
 
         VertexJitterSpace vertexJitterSpace = Array.IndexOf(material.shaderKeywords, "ENABLE_SCREENSPACE_JITTER") != -1 ? VertexJitterSpace.Screen : VertexJitterSpace.World;        
         EditorGUI.BeginChangeCheck();
@@ -101,12 +101,12 @@ public class RetroUnlitShaderCustomGUI : ShaderGUI
 
     private void DoAffineMappingArea(Material material)
     {
-        materialEditor.RangeProperty(affineMapIntensity, Styles.AffineMapText);
+        _materialEditor.RangeProperty(_affineMapIntensity, Styles.AffineMapText);
     }
 
     private void DoDrawDistanceArea(Material material)
     {
-        materialEditor.FloatProperty(drawDistance, Styles.DrawDistanceText);
+        _materialEditor.FloatProperty(_drawDistance, Styles.DrawDistanceText);
 
         using (new GUILayout.HorizontalScope())
         {

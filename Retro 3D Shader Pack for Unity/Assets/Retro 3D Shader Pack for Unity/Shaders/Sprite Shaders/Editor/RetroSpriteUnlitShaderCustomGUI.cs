@@ -1,7 +1,7 @@
 ﻿//////////////////////////////////////////////////
 // Author:				Chris Murphy
 // Date created:		24.10.19
-// Date last edited:	14.11.19
+// Date last edited:	14.05.24
 // References:          https://docs.unity3d.com/Manual/SL-CustomShaderGUI.html
 //                      https://github.com/Unity-Technologies/UnityCsReference/blob/master/Editor/Mono/Inspector/StandardShaderGUI.cs
 //////////////////////////////////////////////////

@@ -1,12 +1,11 @@
 ﻿//////////////////////////////////////////////////
 // Author:              Chris Murphy
 // Date created:        27.10.19
-// Date last edited:    27.10.19
+// Date last edited:    14.05.24
 //////////////////////////////////////////////////
 using UnityEditor;
 using UnityEditor.Rendering.PostProcessing;
 using UnityEngine.Rendering.PostProcessing;
-
 
 [PostProcessEditor(typeof(RetroPostProcessEffect))]
 public sealed class RetroPostProcessEditor : PostProcessEffectEditor<RetroPostProcessEffect>

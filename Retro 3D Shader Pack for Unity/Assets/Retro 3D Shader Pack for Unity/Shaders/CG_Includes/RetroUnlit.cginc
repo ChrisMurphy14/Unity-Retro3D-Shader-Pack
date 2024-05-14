@@ -1,19 +1,19 @@
 //////////////////////////////////////////////////
 // Author:				Chris Murphy
 // Date created:		18.07.19
-// Date last edited:	14.11.19
+// Date last edited:	14.05.24
 //////////////////////////////////////////////////
 #ifndef _RETRO_3D_UNLIT_SHADER_
 #define _RETRO_3D_UNLIT_SHADER_
 
-// A struct containing the vertex data to be passed into the vertex function.
+// The vertex data to be passed into the vertex function.
 struct appdata
 {
 	float4 vertex : POSITION;
 	float2 uv : TEXCOORD0;
 };
 
-// A struct containing the fragment data (a collection of values produced by the rasterizer) to be passed into the fragment function.
+// The fragment data (a collection of values produced by the rasterizer) to be passed into the fragment function.
 struct v2f
 {
 	float4 vertex : SV_POSITION;

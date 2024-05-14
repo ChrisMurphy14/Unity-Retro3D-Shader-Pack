@@ -1,7 +1,7 @@
 ﻿//////////////////////////////////////////////////
 // Author:				Chris Murphy
 // Date created:		02.10.19
-// Date last edited:	14.11.19
+// Date last edited:	14.05.24
 // References:			http://wiki.unity3d.com/index.php/CGVertexLit 
 //////////////////////////////////////////////////
 Shader "Retro 3D Shader Pack/Vertex Lit (Transparent)"
