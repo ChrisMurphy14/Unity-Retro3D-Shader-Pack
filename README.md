@@ -1,5 +1,7 @@
 # Retro-3D-Shader-Pack-for-Unity
 
+v1.3 was most recently tested on 16.05.2024 and is compatible with Unity LTS 2022.3.26f1 and all previous versions
+
 The Retro 3D Shader Pack for Unity is a collection of shaders that can be used to replicate the distinct visual style of early 3D games within the modern Unity engine. Features include: 
 
 - Four distinct lighting types; unlit, vertex lit, flat lit, and standard Unity lighting
@@ -15,5 +17,3 @@ The Retro 3D Shader Pack for Unity is a collection of shaders that can be used t
 	- Scalable dithering which comes with a set of supplied dither patterns as well as the option to use your own
 - Demonstration scene showcasing the practical use of each shader with example materials and post-processing profile
 - Licensed under the Creative Commons - Attribution Share-Alike license, which means that the pack itself can be freely shared and adapted as long as proper attribution is given and it remains under the same licensing terms
-
-This repo contains the source project used to build the shader pack - visit https://leakyfingers.itch.io/retro-3d-shader-pack-for-unity to download the pack in .unitypackage format as well as the demo scene executable.
