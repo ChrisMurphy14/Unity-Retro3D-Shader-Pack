@@ -61,7 +61,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Retro 3D Shader Pack for Unity\Example Scene\Scripts\RotateConstantly.cs" />
-    <Compile Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Post-Processing\RetroPostProcessEffect.cs" />
+    <Compile Include="Assets\Retro 3D Shader Pack for Unity\Shaders\RetroPostProcessEffect.cs" />
     <Compile Include="Assets\Retro 3D Shader Pack for Unity\Example Scene\Scripts\EmissiveSphereMovement.cs" />
     <Compile Include="Assets\Retro 3D Shader Pack for Unity\Example Scene\Scripts\ExampleSceneCamera.cs" />
   </ItemGroup>
@@ -72,12 +72,12 @@
     <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\RetroVertexLit.shader" />
     <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\CG_Includes\RetroUnityLit.cginc" />
     <None Include="Assets\Third-Party\TextMesh Pro\Resources\Shaders\TMP_Bitmap.shader" />
-    <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Sprite Shaders\RetroSpriteUnlit.shader" />
+    <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\RetroSpriteUnlit.shader" />
     <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\RetroFlatLitTransparent.shader" />
     <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\RetroUnityLitTransparent.shader" />
     <None Include="Assets\Retro 3D Shader Pack for Unity\README.txt" />
     <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\RetroUnlitTransparent.shader" />
-    <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Sprite Shaders\RetroSpriteLit.shader" />
+    <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\RetroSpriteLit.shader" />
     <None Include="Assets\Third-Party\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\RetroUnlit.shader" />
     <None Include="Assets\Third-Party\TextMesh Pro\Resources\Shaders\TMP_SDF-Surface.shader" />
@@ -91,9 +91,9 @@
     <None Include="Assets\Third-Party\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
     <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\CG_Includes\RetroUnlit.cginc" />
     <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\RetroUnityLit.shader" />
-    <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Post-Processing\Resources\RetroPostProcess.shader" />
+    <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Resources\RetroPostProcess.shader" />
     <None Include="Assets\Third-Party\TextMesh Pro\Resources\Shaders\TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Post-Processing\Resources\Resources File Explanation.txt" />
+    <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Resources\Resources File Explanation.txt" />
     <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\RetroVertexLitTransparent.shader" />
     <None Include="Assets\Retro 3D Shader Pack for Unity\Shaders\CG_Includes\RetroVertexLit.cginc" />
     <None Include="Assets\Third-Party\TextMesh Pro\Resources\Shaders\TMP_SDF Overlay.shader" />
@@ -1109,6 +1109,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="asset-store-tools-editor.csproj">
+      <Project>{3366D747-07F4-3457-8063-CA108A1042BB}</Project>
+      <Name>asset-store-tools-editor</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

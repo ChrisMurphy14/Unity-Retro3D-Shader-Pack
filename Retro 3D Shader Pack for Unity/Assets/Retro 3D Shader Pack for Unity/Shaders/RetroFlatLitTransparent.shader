@@ -39,5 +39,5 @@ Shader "Retro 3D Shader Pack/Flat Lit (Transparent)"
 	}
 
 	FallBack "Diffuse" 
-	CustomEditor "RetroFlatLitShaderCustomGUI"
+	CustomEditor "Retro3DShaderPack.RetroFlatLitShaderCustomGUI"
 }

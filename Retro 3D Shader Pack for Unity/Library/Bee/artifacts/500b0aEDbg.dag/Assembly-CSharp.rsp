@@ -334,6 +334,7 @@
 -r:"Library/PackageCache/com.unity.analytics@3.8.1/Unity.Analytics.Tracker.dll"
 -r:"Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/Newtonsoft.Json.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/Analytics.ref.dll"
+-r:"Library/Bee/artifacts/500b0aEDbg.dag/asset-store-tools-editor.ref.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/Purchasing.Common.ref.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/Unity.2D.Sprite.Editor.ref.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/Unity.2D.Tilemap.Editor.ref.dll"
@@ -375,7 +376,7 @@
 "Assets/Retro 3D Shader Pack for Unity/Example Scene/Scripts/EmissiveSphereMovement.cs"
 "Assets/Retro 3D Shader Pack for Unity/Example Scene/Scripts/ExampleSceneCamera.cs"
 "Assets/Retro 3D Shader Pack for Unity/Example Scene/Scripts/RotateConstantly.cs"
-"Assets/Retro 3D Shader Pack for Unity/Shaders/Post-Processing/RetroPostProcessEffect.cs"
+"Assets/Retro 3D Shader Pack for Unity/Shaders/RetroPostProcessEffect.cs"
 -langversion:9.0
 /deterministic
 /optimize-

@@ -15,7 +15,7 @@ C:/Users/Chris/Documents/Unity-Retro3D-Shader-Pack/Retro 3D Shader Pack for Unit
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-62404
+51778
 Successfully changed project path to: C:/Users/Chris/Documents/Unity-Retro3D-Shader-Pack/Retro 3D Shader Pack for Unity
 C:/Users/Chris/Documents/Unity-Retro3D-Shader-Pack/Retro 3D Shader Pack for Unity
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ C:/Users/Chris/Documents/Unity-Retro3D-Shader-Pack/Retro 3D Shader Pack for Unit
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [15916] Host "[IP] 192.168.1.4 [Port] 0 [Flags] 2 [Guid] 827012336 [EditorId] 827012336 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-T45VPS7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [12124] Host "[IP] 192.168.1.4 [Port] 0 [Flags] 2 [Guid] 2785687214 [EditorId] 2785687214 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-T45VPS7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [15916] Host "[IP] 192.168.1.4 [Port] 0 [Flags] 2 [Guid] 827012336 [EditorId] 827012336 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-T45VPS7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [12124] Host "[IP] 192.168.1.4 [Port] 0 [Flags] 2 [Guid] 2785687214 [EditorId] 2785687214 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-T45VPS7) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 11 workers.
-Refreshing native plugins compatible for Editor in 18.70 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 11.69 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.26f1 (ec6cd8118806)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.26f1/Editor/Data/Resources/UnitySubsystems
@@ -73,51 +73,51 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.26f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.26f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.26f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56152
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56756
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.26f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.26f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.26f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.013833 seconds.
-- Loaded All Assemblies, in  0.334 seconds
+Registered in 0.013413 seconds.
+- Loaded All Assemblies, in  0.311 seconds
 Native extension for WindowsStandalone target not found
 [usbmuxd] Start listen thread
 [usbmuxd] Listen thread started
 Native extension for iOS target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 214 ms
+Android Extension - Scanning For ADB Devices 216 ms
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.509 seconds
-Domain Reload Profiling: 841ms
-	BeginReloadAssembly (105ms)
+- Finished resetting the current domain, in  0.481 seconds
+Domain Reload Profiling: 790ms
+	BeginReloadAssembly (100ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (33ms)
+	RebuildCommonClasses (27ms)
 	RebuildNativeTypeToScriptingClass (8ms)
-	initialDomainReloadingComplete (67ms)
-	LoadAllAssembliesAndSetupDomain (119ms)
-		LoadAssemblies (103ms)
+	initialDomainReloadingComplete (57ms)
+	LoadAllAssembliesAndSetupDomain (116ms)
+		LoadAssemblies (98ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (116ms)
-			TypeCache.Refresh (115ms)
-				TypeCache.ScanAssembly (104ms)
+		AnalyzeDomain (114ms)
+			TypeCache.Refresh (113ms)
+				TypeCache.ScanAssembly (102ms)
 			ScanForSourceGeneratedMonoScriptInfo (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (509ms)
+	FinalizeReload (482ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (462ms)
+		SetupLoadedEditorAssemblies (435ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (314ms)
-			SetLoadedEditorAssemblies (3ms)
+			InitializePlatformSupportModulesInManaged (309ms)
+			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
 			BeforeProcessingInitializeOnLoad (2ms)
-			ProcessInitializeOnLoadAttributes (105ms)
-			ProcessInitializeOnLoadMethodAttributes (37ms)
+			ProcessInitializeOnLoadAttributes (88ms)
+			ProcessInitializeOnLoadMethodAttributes (33ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -126,56 +126,56 @@ Domain Reload Profiling: 841ms
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory is not a mono symbol file
-- Loaded All Assemblies, in  0.520 seconds
-Refreshing native plugins compatible for Editor in 8.92 ms, found 0 plugins.
+- Loaded All Assemblies, in  0.501 seconds
+Refreshing native plugins compatible for Editor in 7.98 ms, found 0 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for iOS target not found
 Native extension for Android target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.554 seconds
-Domain Reload Profiling: 1068ms
-	BeginReloadAssembly (130ms)
+- Finished resetting the current domain, in  0.524 seconds
+Domain Reload Profiling: 1020ms
+	BeginReloadAssembly (128ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (4ms)
+		DisableScriptedObjects (5ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (21ms)
-	RebuildCommonClasses (25ms)
-	RebuildNativeTypeToScriptingClass (7ms)
+	RebuildCommonClasses (26ms)
+	RebuildNativeTypeToScriptingClass (8ms)
 	initialDomainReloadingComplete (35ms)
-	LoadAllAssembliesAndSetupDomain (316ms)
-		LoadAssemblies (311ms)
+	LoadAllAssembliesAndSetupDomain (299ms)
+		LoadAssemblies (298ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (83ms)
-			TypeCache.Refresh (64ms)
-				TypeCache.ScanAssembly (51ms)
+		AnalyzeDomain (77ms)
+			TypeCache.Refresh (60ms)
+				TypeCache.ScanAssembly (48ms)
 			ScanForSourceGeneratedMonoScriptInfo (15ms)
-			ResolveRequiredComponents (3ms)
-	FinalizeReload (554ms)
+			ResolveRequiredComponents (2ms)
+	FinalizeReload (525ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (405ms)
+		SetupLoadedEditorAssemblies (393ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (33ms)
-			SetLoadedEditorAssemblies (3ms)
+			InitializePlatformSupportModulesInManaged (35ms)
+			SetLoadedEditorAssemblies (4ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (84ms)
-			ProcessInitializeOnLoadAttributes (153ms)
-			ProcessInitializeOnLoadMethodAttributes (122ms)
-			AfterProcessingInitializeOnLoad (9ms)
+			BeforeProcessingInitializeOnLoad (80ms)
+			ProcessInitializeOnLoadAttributes (145ms)
+			ProcessInitializeOnLoadMethodAttributes (121ms)
+			AfterProcessingInitializeOnLoad (8ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (4ms)
-Shader 'Retro 3D Shader Pack/Unlit': fallback shader 'Unlit-Normal' not found
 Shader 'Retro 3D Shader Pack/Sprite (Unlit)': fallback shader 'Unlit-Normal' not found
 Shader 'Retro 3D Shader Pack/Unlit (Transparent)': fallback shader 'Unlit-Normal' not found
+Shader 'Retro 3D Shader Pack/Unlit': fallback shader 'Unlit-Normal' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
-Refreshing native plugins compatible for Editor in 9.16 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 8.26 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 2738 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 73 unused Assets / (1.9 MB). Loaded Objects now: 3186.
-Memory consumption went from 147.1 MB to 145.3 MB.
-Total: 6.652300 ms (FindLiveObjects: 0.210300 ms CreateObjectMapping: 0.122300 ms MarkObjects: 5.804600 ms  DeleteObjects: 0.514500 ms)
+Unloading 2836 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 72 unused Assets / (1.8 MB). Loaded Objects now: 3278.
+Memory consumption went from 148.9 MB to 147.1 MB.
+Total: 6.452500 ms (FindLiveObjects: 0.226600 ms CreateObjectMapping: 0.110000 ms MarkObjects: 5.637200 ms  DeleteObjects: 0.478000 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
@@ -191,18 +191,78 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 955814.933564 seconds.
-  path: Assets/Retro 3D Shader Pack for Unity/README.txt
-  artifactKey: Guid(94782b2026bc7424db8c6881ff1bf3a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Retro 3D Shader Pack for Unity/README.txt using Guid(94782b2026bc7424db8c6881ff1bf3a8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dd01ff1c33de6adffa8d8a6a2a08bfe3') in 0.009212 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
+Received Prepare
+Begin MonoManager ReloadAssembly
+Symbol file LoadedFromMemory is not a mono symbol file
+- Loaded All Assemblies, in  0.631 seconds
+Refreshing native plugins compatible for Editor in 8.76 ms, found 0 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.884 seconds
+Domain Reload Profiling: 1511ms
+	BeginReloadAssembly (362ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (4ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (28ms)
+	RebuildCommonClasses (24ms)
+	RebuildNativeTypeToScriptingClass (8ms)
+	initialDomainReloadingComplete (26ms)
+	LoadAllAssembliesAndSetupDomain (207ms)
+		LoadAssemblies (272ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (7ms)
+			TypeCache.Refresh (4ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (3ms)
+	FinalizeReload (885ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (451ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (36ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (98ms)
+			ProcessInitializeOnLoadAttributes (161ms)
+			ProcessInitializeOnLoadMethodAttributes (140ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (6ms)
+Shader 'Retro 3D Shader Pack/Sprite (Unlit)': fallback shader 'Unlit-Normal' not found
+Shader 'Retro 3D Shader Pack/Unlit (Transparent)': fallback shader 'Unlit-Normal' not found
+Shader 'Retro 3D Shader Pack/Unlit': fallback shader 'Unlit-Normal' not found
+Refreshing native plugins compatible for Editor in 10.42 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2761 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 63 unused Assets / (1.8 MB). Loaded Objects now: 3281.
+Memory consumption went from 131.5 MB to 129.7 MB.
+Total: 7.060600 ms (FindLiveObjects: 0.244000 ms CreateObjectMapping: 0.153500 ms MarkObjects: 6.077800 ms  DeleteObjects: 0.584500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 6.104209 seconds.
-  path: Assets/Retro 3D Shader Pack for Unity/Shaders/Post-Processing
-  artifactKey: Guid(206e1176175caea4aa4d0dadf8f3cce9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Retro 3D Shader Pack for Unity/Shaders/Post-Processing using Guid(206e1176175caea4aa4d0dadf8f3cce9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd6478e850b347d86912a2bb2d2932fda') in 0.000469 seconds
+  Time since last request: 10469.297191 seconds.
+  path: Assets/Retro 3D Shader Pack for Unity/Example Scene/Asset Store Photoshoot.unity
+  artifactKey: Guid(c3a3b398eb640cf419012b632209fd81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Retro 3D Shader Pack for Unity/Example Scene/Asset Store Photoshoot.unity using Guid(c3a3b398eb640cf419012b632209fd81) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d1d74e8536fac0711ab4bcd3e6f9fe3') in 0.005825 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0

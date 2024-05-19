@@ -46,5 +46,5 @@ Shader "Retro 3D Shader Pack/Vertex Lit"
 	}
 
 	Fallback "VertexLit"
-	CustomEditor "RetroVertexLitShaderCustomGUI"
+	CustomEditor "Retro3DShaderPack.RetroVertexLitShaderCustomGUI"
 }

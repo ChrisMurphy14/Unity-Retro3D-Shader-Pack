@@ -1,0 +1,21 @@
+{"ActiveWorkflow" : "UnitypackageWorkflow", "FolderWorkflow" : {
+"mainPath" : {
+"path" : "", 
+"guid" : ""
+}, 
+"extraPaths" : [], 
+"dependencies" : false, 
+"dependenciesNames" : []
+}, "UnitypackageWorkflow" : {
+"mainPath" : {
+"path" : "C:\/Users\/Chris\/Documents\/Unity-Retro3D-Shader-Pack\/Package\/Retro 3D Shader Pack for Unity v1.3.unitypackage", 
+"guid" : ""
+}, 
+"extraPaths" : []
+}, "HybridPackageWorkflow" : {
+"mainPath" : {
+"path" : "", 
+"guid" : ""
+}, 
+"extraPaths" : []
+}}

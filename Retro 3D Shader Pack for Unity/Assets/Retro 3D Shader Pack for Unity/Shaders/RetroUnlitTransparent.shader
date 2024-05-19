@@ -37,5 +37,5 @@ Shader "Retro 3D Shader Pack/Unlit (Transparent)"
 	}
 
 	FallBack "Unlit-Normal"
-	CustomEditor "RetroUnlitShaderCustomGUI"
+	CustomEditor "Retro3DShaderPack.RetroUnlitShaderCustomGUI"
 }

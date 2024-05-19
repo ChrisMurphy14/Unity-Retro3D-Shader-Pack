@@ -117,7 +117,6 @@
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -define:UNITY_EDITOR_ONLY_COMPILATION
--r:"Assets/AssetStoreTools/Editor/AssetStoreTools.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.26f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.26f1/Editor/Data/Managed/UnityEngine/UnityEditor.CoreModule.dll"
 -r:"C:/Program Files/Unity/Hub/Editor/2022.3.26f1/Editor/Data/Managed/UnityEngine/UnityEditor.DeviceSimulatorModule.dll"
@@ -343,6 +342,7 @@
 -r:"Library/PackageCache/com.unity.nuget.newtonsoft-json@3.2.1/Runtime/Newtonsoft.Json.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/Analytics.ref.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/Assembly-CSharp.ref.dll"
+-r:"Library/Bee/artifacts/500b0aEDbg.dag/asset-store-tools-editor.ref.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/Purchasing.Common.ref.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/Unity.2D.Sprite.Editor.ref.dll"
 -r:"Library/Bee/artifacts/500b0aEDbg.dag/Unity.2D.Tilemap.Editor.ref.dll"
@@ -384,12 +384,12 @@
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.26f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll"
 -analyzer:"C:/Program Files/Unity/Hub/Editor/2022.3.26f1/Editor/Data/Tools/Unity.SourceGenerators/Unity.SourceGenerators.dll"
 "Assets/Retro 3D Shader Pack for Unity/Shaders/Editor/RetroFlatLitShaderCustomGUI.cs"
+"Assets/Retro 3D Shader Pack for Unity/Shaders/Editor/RetroPostProcessEditor.cs"
+"Assets/Retro 3D Shader Pack for Unity/Shaders/Editor/RetroSpriteLitShaderCustomGUI.cs"
+"Assets/Retro 3D Shader Pack for Unity/Shaders/Editor/RetroSpriteUnlitShaderCustomGUI.cs"
 "Assets/Retro 3D Shader Pack for Unity/Shaders/Editor/RetroUnityLitShaderCustomGUI.cs"
 "Assets/Retro 3D Shader Pack for Unity/Shaders/Editor/RetroUnlitShaderCustomGUI.cs"
 "Assets/Retro 3D Shader Pack for Unity/Shaders/Editor/RetroVertexLitShaderCustomGUI.cs"
-"Assets/Retro 3D Shader Pack for Unity/Shaders/Post-Processing/Editor/RetroPostProcessEditor.cs"
-"Assets/Retro 3D Shader Pack for Unity/Shaders/Sprite Shaders/Editor/RetroSpriteLitShaderCustomGUI.cs"
-"Assets/Retro 3D Shader Pack for Unity/Shaders/Sprite Shaders/Editor/RetroSpriteUnlitShaderCustomGUI.cs"
 -langversion:9.0
 /deterministic
 /optimize-

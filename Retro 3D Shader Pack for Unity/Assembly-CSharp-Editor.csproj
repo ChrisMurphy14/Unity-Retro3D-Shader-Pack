@@ -62,14 +62,11 @@
   <ItemGroup>
     <Compile Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Editor\RetroUnityLitShaderCustomGUI.cs" />
     <Compile Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Editor\RetroFlatLitShaderCustomGUI.cs" />
-    <Compile Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Sprite Shaders\Editor\RetroSpriteLitShaderCustomGUI.cs" />
-    <Compile Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Sprite Shaders\Editor\RetroSpriteUnlitShaderCustomGUI.cs" />
-    <Compile Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Post-Processing\Editor\RetroPostProcessEditor.cs" />
+    <Compile Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Editor\RetroSpriteUnlitShaderCustomGUI.cs" />
     <Compile Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Editor\RetroUnlitShaderCustomGUI.cs" />
+    <Compile Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Editor\RetroSpriteLitShaderCustomGUI.cs" />
+    <Compile Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Editor\RetroPostProcessEditor.cs" />
     <Compile Include="Assets\Retro 3D Shader Pack for Unity\Shaders\Editor\RetroVertexLitShaderCustomGUI.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\AssetStoreTools\Editor\AssetStoreTools.dll" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -434,10 +431,6 @@
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.nuget.newtonsoft-json@3.2.1\Runtime\Newtonsoft.Json.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="AssetStoreTools">
-      <HintPath>Assets\AssetStoreTools\Editor\AssetStoreTools.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
@@ -1129,6 +1122,10 @@
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{72902CBF-2B83-374C-9767-1FE5D2EA94E2}</Project>
       <Name>Assembly-CSharp</Name>
+    </ProjectReference>
+    <ProjectReference Include="asset-store-tools-editor.csproj">
+      <Project>{3366D747-07F4-3457-8063-CA108A1042BB}</Project>
+      <Name>asset-store-tools-editor</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

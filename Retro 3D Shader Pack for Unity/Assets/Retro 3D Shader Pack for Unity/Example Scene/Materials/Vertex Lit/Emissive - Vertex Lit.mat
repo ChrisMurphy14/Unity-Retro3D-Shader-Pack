@@ -2,20 +2,26 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!21 &2100000
 Material:
-  serializedVersion: 6
+  serializedVersion: 8
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Emissive - Vertex Lit
   m_Shader: {fileID: 4800000, guid: 91061e341baaad240b2e499231c365c5, type: 3}
-  m_ShaderKeywords: EMISSION_ENABLED ENABLE_AFFINE_TEXTURE_MAPPING
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords:
+  - EMISSION_ENABLED
+  m_InvalidKeywords:
+  - ENABLE_AFFINE_TEXTURE_MAPPING
   m_LightmapFlags: 1
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
+  m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
@@ -71,6 +77,7 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    m_Ints: []
     m_Floats:
     - _AffineMapIntensity: 1
     - _BumpScale: 1
@@ -95,6 +102,7 @@ Material:
     m_Colors:
     - _AlbedoColorTint: {r: 1, g: 0.5896226, b: 0.5896226, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 23.968628, g: 0, b: 0, a: 1}
+    - _EmissionColor: {r: 0, g: 1.0502915, b: 23.968628, a: 1}
     - _SpecColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []

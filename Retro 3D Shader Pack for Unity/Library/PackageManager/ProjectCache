@@ -15,10 +15,19 @@ m_ProjectFiles:
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 638504656310101264
-    m_Hash: 3248430965
+      ticks: 638515067349997372
+    m_Hash: 671674022
 m_EmbeddedPackageManifests:
-  m_ManifestsStatus: {}
+  m_ManifestsStatus:
+    C:/Users/Chris/Documents/Unity-Retro3D-Shader-Pack/Retro 3D Shader Pack for Unity/Packages/com.unity.asset-store-tools/package.json:
+      m_FilePath: C:/Users/Chris/Documents/Unity-Retro3D-Shader-Pack/Retro 3D Shader
+        Pack for Unity/Packages/com.unity.asset-store-tools/package.json
+      m_PathExists: 1
+      m_ContentTrackingEnabled: 1
+      m_ModificationDate:
+        serializedVersion: 2
+        ticks: 638509374350000000
+      m_Hash: 3616875806
 m_LocalPackages:
   m_LocalFileStatus: []
 m_ProjectPath: C:/Users/Chris/Documents/Unity-Retro3D-Shader-Pack/Retro 3D Shader
@@ -3568,6 +3577,62 @@ m_ResolvedPackages:
     path: 
   unityLifecycle:
     version: 1.0.0
+    nextVersion: 
+    recommendedVersion: 
+    isDeprecated: 0
+    deprecationMessage: 
+  isDeprecated: 0
+  deprecationMessage: 
+- packageId: com.unity.asset-store-tools@file:C:\Users\Chris\Documents\Unity-Retro3D-Shader-Pack\Retro
+    3D Shader Pack for Unity\Packages\com.unity.asset-store-tools
+  testable: 1
+  isDirectDependency: 1
+  version: 11.4.1
+  source: 3
+  resolvedPath: C:\Users\Chris\Documents\Unity-Retro3D-Shader-Pack\Retro 3D Shader
+    Pack for Unity\Packages\com.unity.asset-store-tools
+  assetPath: Packages/com.unity.asset-store-tools
+  name: com.unity.asset-store-tools
+  displayName: Asset Store Tools
+  author:
+    name: 
+    email: 
+    url: 
+  category: 
+  type: tool
+  description: Whether you're a programmer, game designer, texture artist or 3D modeler,
+    you're welcome to share your creations with everybody in the Unity developer
+    community!
+  status: 0
+  errors: []
+  versions:
+    all: []
+    compatible: []
+    recommended: 
+    deprecated: []
+  dependencies: []
+  resolvedDependencies: []
+  keywords: []
+  registry:
+    id: main
+    name: 
+    url: https://packages.unity.com
+    scopes: []
+    isDefault: 1
+    capabilities: 7
+    configSource: 0
+  hideInEditor: 1
+  isAssetStorePackage: 0
+  datePublishedTicks: 0
+  documentationUrl: 
+  hasRepository: 0
+  repository:
+    type: 
+    url: 
+    revision: 
+    path: 
+  unityLifecycle:
+    version: 
     nextVersion: 
     recommendedVersion: 
     isDeprecated: 0
